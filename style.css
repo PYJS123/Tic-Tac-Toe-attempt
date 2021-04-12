@@ -5,9 +5,14 @@
 
 * {
   font-family: Flux;
-  color: rgb(99, 99, 99);
+  color: rgb(150, 150, 150);
 }
 
 html {
   background-color: rgb(28, 28, 28);
+}
+
+.header {
+  text-decoration: underline;
+  font-weight: bold;
 }
