@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "Flux";
+  src: url(assets/Flux Regular.otf);
+}
+
+* {
+  font-family: Flux;
+  color: rgb(99, 99, 99);
+}
+
+html {
+  background-color: rgb(28, 28, 28);
+}
