@@ -16,3 +16,7 @@ html {
   text-decoration: underline;
   font-weight: 999;
 }
+
+#JScanvas {
+  border:5px solid rgb(201, 201, 28);
+}
