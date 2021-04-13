@@ -3,7 +3,7 @@ var bgNum = 28,
     curr = [bgNum, bgNum, bgNum],
     next = [bgNum, bgNum, bgNum];
 // Frame rate
-var fps = 1000/30;
+var fps = 1000/60;
 
 // Track checkbox- cannot be tracked now, too early
 var checkBox;
