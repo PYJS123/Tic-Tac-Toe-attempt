@@ -1,3 +1,5 @@
+@import url(//fonts.googleapis.com/css?family=Open+Sans);
+
 @font-face {
   font-family: "Flux";
   src: url(/assets/Flux Regular.otf) format("opentype"),
@@ -5,6 +7,7 @@
 }
 
 * {
+  font-family: Open Sans;
   font-family: Flux;
   color: rgb(227, 227, 227);
 }
