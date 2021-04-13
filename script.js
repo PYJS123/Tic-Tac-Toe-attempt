@@ -16,8 +16,13 @@ setTimeout(() => {
 // Updating mode (light/dark)
 setInterval(() => {
   updateMode();
+
+  // Execute game loop
+  gameLoop();
 }, fps);
 
+
+// Update the background- light/dark?
 var updateMode = function() {
   // Using ? operator to set next colour in one line
   next[0] = !checkBox.checked ? 255-bgNum : bgNum;
