@@ -1,4 +1,5 @@
 @import url(//fonts.googleapis.com/css?family=Open+Sans);
+@import url(//fonts.googleapis.com/css?family=Roboto+Mono);
 
 @font-face {
   font-family: "Flux";
@@ -7,8 +8,7 @@
 }
 
 * {
-  font-family: Open Sans;
-  font-family: Flux;
+  font-family: Flux, Open Sans, Roboto Mono, Courier New;
   color: rgb(227, 227, 227);
 }
 
