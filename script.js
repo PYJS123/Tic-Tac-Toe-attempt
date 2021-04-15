@@ -4,13 +4,18 @@ var bgNum = 28,
     next = [bgNum, bgNum, bgNum];
 // Frame rate
 var fps = 1000/60;
+// Canvas
+var cnv, ctx;
 
 // Track checkbox- cannot be tracked now, too early
 var checkBox;
-// Delayed definition of checkbox for time
-setTimeout(() => {
+
+// Delayed definition of checkbox and canvas while page loads
+window.onload = function() {
   checkBox = document.getElementById("modeCheck");
-}, 10);
+  cnv = document.getElementById("JScanvas");
+  ctx = cnv.getContext("2d");
+};
 
 
 // Updating mode (light/dark)

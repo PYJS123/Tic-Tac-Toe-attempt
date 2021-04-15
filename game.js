@@ -1,12 +1,5 @@
 // The actual game- the whole point
 
-var cnv, ctx;
-
-// Delayed selection of canvas- like async+await
-setTimeout(() => {
-  cnv = document.getElementById("JScanvas");
-  ctx = cnv.getContext("2d");
-}, 10);
 
 var gameLoop = function() {
   // This will be the default styling for line colour and width
