@@ -11,9 +11,8 @@ var gameLoop = function() {
 }
 
 // Code for mouse-presses
-var mousePressed = function() {
-  let x = event.pageX, y = event.pageY;
-  ctx.fillRect(x, y, 1, 1);
+var mousePressed = function(event) {
+  let x = event.pageX - cnv.offsetLeft, y = event.pageY - cnv.offsetTop;
 }
 
 // Code for drawing the grid
