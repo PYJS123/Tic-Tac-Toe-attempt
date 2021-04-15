@@ -10,6 +10,12 @@ var gameLoop = function() {
   drawGrid();
 }
 
+// Code for mouse-presses
+var mousePressed = function() {
+  let x = event.pageX, y = event.pageY;
+  ctx.fillRect(x, y, 1, 1);
+}
+
 // Code for drawing the grid
 var drawGrid = function() {
   line(cnv.width/3*1, 0, cnv.width/3*1, cnv.height);
@@ -23,5 +29,6 @@ var line = function(x1, y1, x2, y2) {
   ctx.beginPath();
   ctx.moveTo(x1, y1);
   ctx.lineTo(x2, y2);
+  ctx.closePath();
   ctx.stroke();
 }

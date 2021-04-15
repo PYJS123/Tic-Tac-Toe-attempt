@@ -15,6 +15,8 @@ window.onload = function() {
   checkBox = document.getElementById("modeCheck");
   cnv = document.getElementById("JScanvas");
   ctx = cnv.getContext("2d");
+  // Detects for mouse-clicks
+  cnv.addEventListener("mousedown", mousePressed, false);
 };
 
 
