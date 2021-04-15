@@ -3,8 +3,8 @@
 
 @font-face {
   font-family: "Flux";
-  src: url(/assets/Flux Regular.otf) format("opentype"),
-       url(/assets/Flux Regular.ttf) format("truetype");
+  src: url("/assets/Flux Regular.otf") format("opentype"),
+       url("/assets/Flux Regular.ttf") format("truetype");
 }
 
 * {
