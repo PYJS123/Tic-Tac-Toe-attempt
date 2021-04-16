@@ -13,8 +13,6 @@ var gameLoop = function() {
 // Code for mouse-presses
 var mousePressed = function(event) {
   let x = event.pageX - cnv.offsetLeft, y = event.pageY - cnv.offsetTop;
-  ctx.fillStyle = 'green';
-  ctx.fillRect(x-2, y-2, 4, 4);
 }
 
 // Code for drawing the grid
