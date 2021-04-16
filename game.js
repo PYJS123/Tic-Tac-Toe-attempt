@@ -2,7 +2,7 @@
 
 // Store the tic-tac-toe grid
 var grid = [
-  ["", "", ""],
+  ["O", "", ""],
   ["", "", ""],
   ["", "", ""]
 ];
@@ -37,14 +37,23 @@ var drawTable = function(table) {
         case "X":
           // Draw "X"
           break;
-        case "Y":
-          // Draw "Y"
+        case "O":
+          // Draw "O"
+          circle((x * cnv.width / 3) + (cnv.width / 6), (y * cnv.height / 3) + (cnv.height / 6), Math.min(cnv.width, cnv.height) / 9);
           break;
         case "":
           break;  // Nothing to do!
       }
     }
   }
+}
+
+// To draw circle is to make something beatiful...
+var circle = function(x, y, r) {
+  ctx.beginPath();
+  ctx.arc(x, y, r, 0, Math.PI*2, false);
+  ctx.closePath();
+  ctx.stroke();
 }
 
 // Code to draw lines
