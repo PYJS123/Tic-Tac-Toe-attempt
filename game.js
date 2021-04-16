@@ -32,7 +32,17 @@ var drawGrid = function() {
 var drawTable = function(table) {
   for (let y = 0; y < table.length; y++) {
     for (let x = 0; x < table[0].length; x++) {
-      // Draw the symbol here
+      // My favourite- switch() {case:} statement!:
+      switch(table[y][x]) {
+        case "X":
+          // Draw "X"
+          break;
+        case "Y":
+          // Draw "Y"
+          break;
+        case "":
+          break;  // Nothing to do!
+      }
     }
   }
 }
