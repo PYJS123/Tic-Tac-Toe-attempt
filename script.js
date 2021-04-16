@@ -51,7 +51,7 @@ var updateMode = function() {
 
 // lerp function
 var lerp = function(num1, num2, amt) {
-  let temp = num2 - num1;
+  let temp = num2-num1;
   temp *= amt;
-  return num1 + temp;
+  return num1+temp;
 }
