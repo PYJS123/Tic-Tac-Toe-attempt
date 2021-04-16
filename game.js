@@ -2,13 +2,16 @@
 
 // Store the tic-tac-toe grid
 var grid = [
-  ["O", "", ""],
-  ["", "", ""],
-  ["", "", ""]
+  ["O", "X", ""],
+  ["", "X", ""],
+  ["", "X", "O"]
 ];
 
 
 var gameLoop = function() {
+  // Clear screen to redraw
+  ctx.clearRect(0, 0, cnv.width, cnv.height);
+
   // This will be the default styling for line colour and width
   ctx.strokeStyle = `rgb(${255-curr[0]}, ${255-curr[1]}, ${curr[2]}`;
   ctx.lineWidth = 5;
@@ -19,7 +22,7 @@ var gameLoop = function() {
 
 // Code for mouse-presses
 var mousePressed = function(event) {
-  let x = event.pageX - cnv.offsetLeft, y = event.pageY - cnv.offsetTop;
+  let x = event.pageX-cnv.offsetLeft, y = event.pageY-cnv.offsetTop;
 }
 
 // Code for drawing the grid
@@ -32,14 +35,17 @@ var drawGrid = function() {
 var drawTable = function(table) {
   for (let y = 0; y < table.length; y++) {
     for (let x = 0; x < table[0].length; x++) {
+      let pdg = 15;  // Padding for "X";
       // My favourite- switch() {case:} statement!:
       switch(table[y][x]) {
         case "X":
           // Draw "X"
+          line((x*cnv.width/3)+pdg, (y*cnv.height/3)+pdg, (x*cnv.width/3)+(cnv.width/3)-pdg, (y*cnv.height/3)+(cnv.height/3)-pdg);
+          line(((x+1)*cnv.width/3)-pdg, (y*cnv.height/3)+pdg, ((x-1)*cnv.width/3)+(cnv.width/3)+pdg, (y*cnv.height/3)+(cnv.height/3)-pdg);
           break;
         case "O":
           // Draw "O"
-          circle((x * cnv.width / 3) + (cnv.width / 6), (y * cnv.height / 3) + (cnv.height / 6), Math.min(cnv.width, cnv.height) / 9);
+          circle((x*cnv.width/3)+(cnv.width/6), (y*cnv.height/3)+(cnv.height/6), Math.min(cnv.width, cnv.height)/9);
           break;
         case "":
           break;  // Nothing to do!
