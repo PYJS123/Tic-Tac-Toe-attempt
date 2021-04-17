@@ -38,6 +38,14 @@ var mousePressed = function(event) {
   }
 }
 
+// Code to find out if the game has ended on the board
+var endGame = function(board) {
+  return {
+    type: "win",
+    place: undefined
+  };
+};
+
 // Code for drawing the grid
 var drawGrid = function() {
   drawLines();
