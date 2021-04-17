@@ -28,6 +28,12 @@ var gameLoop = function() {
 // Code for mouse-presses
 var mousePressed = function(event) {
   let x = event.pageX-cnv.offsetLeft, y = event.pageY-cnv.offsetTop;
+  // Do some simple maths to find out the cell
+  let newX = Math.floor(x/cnv.width*3), newY = Math.floor(y/cnv.height*3);
+
+  // Assign the new cell and update the player, with some maths (again!)
+  grid[newY][newX] = currPlayer;
+  currPlayer = players[++currIndex % players.length];
 }
 
 // Code for drawing the grid
