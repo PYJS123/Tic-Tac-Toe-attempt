@@ -7,6 +7,11 @@ var grid = [
   ["", "", ""]
 ];
 
+// Defining players
+var players = ["X", "O"],
+    currIndex = 0,
+    currPlayer = players[0];
+
 
 var gameLoop = function() {
   // Clear screen to redraw
