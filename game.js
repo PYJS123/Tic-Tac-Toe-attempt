@@ -29,6 +29,10 @@ var gameLoop = function() {
   let result = endGame(grid);
   if (playing == true && result.type != undefined) {
     console.log(result);
+    // Draw a line for wins
+    if (result.type != 'draw') {
+      // Draw lines for wins
+    }
     playing = false;
   }
 }
