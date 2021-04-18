@@ -28,7 +28,7 @@ var gameLoop = function() {
   drawGrid();
   let result = endGame(grid);
   if (playing == true && result.type != undefined) {
-    setTimeout(()=>{alert(result.type+' '+result.angleWin)},500);
+    setTimeout(()=>{alert(result.type+' '+result.angleWin+' '+result.winner)},500);
     playing = false;
   }
 }
@@ -50,13 +50,20 @@ var mousePressed = function(event) {
 var endGame = function(board) {
   let type, winner, angleWin;
 
-  // Checking for wins- lengthy for storage purposes. Sorry- I should value readability!
+  // Checking for wins
   // Columns
-  if ((board[0][0] == board[1][0] && board[1][0] == board[2][0] && board[0][0] != "") || (board[0][1] == board[1][1] && board[1][1] == board[2][1] && board[0][1] != "") || (board[0][2] == board[1][2] && board[1][2] == board[2][2] && board[0][2] != "")) {type='win';angleWin='column';}
+  if (board[0][0] == board[1][0] && board[1][0] == board[2][0] && board[0][0] != "") {type='win';angleWin='column';winner=board[0][0]}
+  if (board[0][1] == board[1][1] && board[1][1] == board[2][1] && board[0][1] != "") {type='win';angleWin='column';winner=board[0][1]}
+  if (board[0][2] == board[1][2] && board[1][2] == board[2][2] && board[0][2] != "") {type='win';angleWin='column';winner=board[0][2]}
+
   // Rows
-  if ((board[0][0] == board[0][1] && board[0][1] == board[0][2] && board[0][0] != "") || (board[1][0] == board[1][1] && board[1][1] == board[1][2] && board[1][0] != "") || (board[2][0] == board[2][1] && board[2][1] == board[2][2] && board[2][0] != "")) {type='win';angleWin='row'}
+  if (board[0][0] == board[0][1] && board[0][1] == board[0][2] && board[0][0] != "") {type='win';angleWin='row';winner=board[0][0]}
+  if (board[1][0] == board[1][1] && board[1][1] == board[1][2] && board[1][0] != "") {type='win';angleWin='row';winner=board[1][0]}
+  if (board[2][0] == board[2][1] && board[2][1] == board[2][2] && board[2][0] != "") {type='win';angleWin='row';winner=board[2][0]}
+
   // Diagonals
-  if ((board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[0][0] != "") || (board[2][0] == board[1][1] && board[1][1] == board[0][2] && board[2][0] != "")) {type='win';angleWin="diagonal"}
+  if (board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[0][0] != "") {type='win';angleWin="diagonal";winner=board[0][0]}
+  if (board[2][0] == board[1][1] && board[1][1] == board[0][2] && board[2][0] != "") {type='win';angleWin="diagonal";winner=board[2][0]}
 
   // Checking for draws
   let full = true;
