@@ -23,6 +23,7 @@ var gameLoop = function() {
 
   // Drawing the lines
   drawGrid();
+  endGame(grid);
 }
 
 // Code for mouse-presses
@@ -40,10 +41,27 @@ var mousePressed = function(event) {
 
 // Code to find out if the game has ended on the board
 var endGame = function(board) {
-  return {
-    type: "win",
-    place: undefined
-  };
+  let type, angleWin;
+
+  // Checking for wins- lengthy for storage purposes. Sorry- I should value readability!
+  // Columns
+  if ((board[0][0] == board[1][0] && board[1][0] == board[2][0] && board[0][0] != "") || (board[0][1] == board[1][1] && board[1][1] == board[2][1] && board[0][1] != "") || (board[0][2] == board[1][2] && board[1][2] == board[2][2] && board[0][2] != "")) {type='win';angleWin='column'}
+  // Rows
+  if ((board[0][0] == board[0][1] && board[0][1] == board[0][2] && board[0][0] != "") || (board[1][0] == board[1][1] && board[1][1] == board[1][2] && board[1][0] != "") || (board[2][0] == board[2][1] && board[2][1] == board[2][2] && board[2][0] != "")) {type='win';angleWin='row'}
+  // Diagonals
+  if ((board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[0][0] != "") || (board[2][0] == board[1][1] && board[1][1] == board[0][2] && board[2][0] != "")) {type='win';angleWin="diagonal"}
+
+  // Checking for draws
+  let full = true;
+  for (let y = 0; y < board.length; y++) {
+    for (let x = 0; x < board[0].length; x++) {
+      if (board[y][x] == "") {full = false;}
+    }
+  }
+  if (full == true && type != 'win') {type='draw';}
+
+  // Return results
+  return {type: type, angleWin: angleWin};
 };
 
 // Code for drawing the grid
