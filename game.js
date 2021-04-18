@@ -18,7 +18,7 @@ var playing = true;
 
 var gameLoop = function() {
   // Clear screen to redraw
-  ctx.clearRect(0, 0, cnv.width, cnv.height);
+  if (playing == true) {ctx.clearRect(0, 0, cnv.width, cnv.height);}
 
   // This will be the default styling for line colour and width
   ctx.strokeStyle = `rgb(${255-curr[0]}, ${255-curr[1]}, ${curr[2]}`;
