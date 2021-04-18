@@ -37,6 +37,17 @@ var gameLoop = function() {
   }
 }
 
+// Function to find if all elements given are equal to each other
+var eqAll = function(...elems) {
+  let allEqual = true;
+  for (let i = 1; i < elems.length; i++) {
+    if (elems[i] != elems[i-1]) {
+      allEqual = false;
+    }
+  }
+  return allEqual;
+}
+
 // Code for mouse-presses
 var mousePressed = function(event) {
   let x = event.pageX-cnv.offsetLeft, y = event.pageY-cnv.offsetTop;
