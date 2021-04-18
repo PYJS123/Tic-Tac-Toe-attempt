@@ -28,7 +28,7 @@ var gameLoop = function() {
   drawGrid();
   let result = endGame(grid);
   if (playing == true && result.type != undefined) {
-    setTimeout(()=>{alert(result.type+' '+result.angleWin+' '+result.winner)},500);
+    console.log(result);
     playing = false;
   }
 }
@@ -40,7 +40,7 @@ var mousePressed = function(event) {
   let newX = Math.floor(x/cnv.width*3), newY = Math.floor(y/cnv.height*3);
 
   // Assign the new cell and update the player (only if valid), with some maths (again!)
-  if (grid[newY][newX] == "") {
+  if (grid[newY][newX] == "" && playing == true) {
     grid[newY][newX] = currPlayer;
     currPlayer = players[++currIndex % players.length];
   }
