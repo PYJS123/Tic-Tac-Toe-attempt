@@ -12,6 +12,9 @@ var players = ["X", "O"],
     currIndex = 0,
     currPlayer = players[0];
 
+// Variable to see if we are playing- avoids constant window.alert() feedback
+var playing = true;
+
 
 var gameLoop = function() {
   // Clear screen to redraw
@@ -23,7 +26,11 @@ var gameLoop = function() {
 
   // Drawing the lines
   drawGrid();
-  endGame(grid);
+  let result = endGame(grid);
+  if (playing == true && result.type != undefined) {
+    setTimeout(()=>{alert(result.type+' '+result.angleWin)},500);
+    playing = false;
+  }
 }
 
 // Code for mouse-presses
@@ -41,11 +48,11 @@ var mousePressed = function(event) {
 
 // Code to find out if the game has ended on the board
 var endGame = function(board) {
-  let type, angleWin;
+  let type, winner, angleWin;
 
   // Checking for wins- lengthy for storage purposes. Sorry- I should value readability!
   // Columns
-  if ((board[0][0] == board[1][0] && board[1][0] == board[2][0] && board[0][0] != "") || (board[0][1] == board[1][1] && board[1][1] == board[2][1] && board[0][1] != "") || (board[0][2] == board[1][2] && board[1][2] == board[2][2] && board[0][2] != "")) {type='win';angleWin='column'}
+  if ((board[0][0] == board[1][0] && board[1][0] == board[2][0] && board[0][0] != "") || (board[0][1] == board[1][1] && board[1][1] == board[2][1] && board[0][1] != "") || (board[0][2] == board[1][2] && board[1][2] == board[2][2] && board[0][2] != "")) {type='win';angleWin='column';}
   // Rows
   if ((board[0][0] == board[0][1] && board[0][1] == board[0][2] && board[0][0] != "") || (board[1][0] == board[1][1] && board[1][1] == board[1][2] && board[1][0] != "") || (board[2][0] == board[2][1] && board[2][1] == board[2][2] && board[2][0] != "")) {type='win';angleWin='row'}
   // Diagonals
@@ -61,7 +68,7 @@ var endGame = function(board) {
   if (full == true && type != 'win') {type='draw';}
 
   // Return results
-  return {type: type, angleWin: angleWin};
+  return {type: type, winner: winner, angleWin: angleWin};
 };
 
 // Code for drawing the grid
