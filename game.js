@@ -25,7 +25,9 @@ var gameLoop = function() {
   ctx.lineWidth = 5;
 
   // Drawing the lines
-  drawGrid();
+  if (playing == true) {
+    drawGrid();
+  }
   let result = endGame(grid);
   if (playing == true && result.type != undefined) {
     console.log(result);
