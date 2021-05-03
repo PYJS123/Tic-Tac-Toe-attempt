@@ -13,7 +13,8 @@ var players = ["X", "O"],
     currPlayer = players[0];
 
 // Variable to see if we are playing- avoids constant window.alert() feedback
-var playing = true;
+// _playing to counter endgame aliasing
+var playing = true, _playing = true;
 
 
 var gameLoop = function() {
@@ -24,6 +25,7 @@ var gameLoop = function() {
   ctx.strokeStyle = `rgb(${255-curr[0]}, ${255-curr[1]}, ${curr[2]}`;
   ctx.lineWidth = 5;
 
+  _playing = playing;
   // Drawing the lines
   if (playing == true) {
     drawGrid();
