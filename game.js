@@ -13,26 +13,22 @@ var players = ["X", "O"],
     currPlayer = players[0];
 
 // Variable to see if we are playing- avoids constant window.alert() feedback
-// _playing to counter endgame aliasing
-var playing = true, _playing = true;
+var playing = true;
 
 
 var gameLoop = function() {
   // Clear screen to redraw
-  if (playing == true) {ctx.clearRect(0, 0, cnv.width, cnv.height);}
+  ctx.clearRect(0, 0, cnv.width, cnv.height);
 
   // This will be the default styling for line colour and width
   ctx.strokeStyle = `rgb(${255-curr[0]}, ${255-curr[1]}, ${curr[2]}`;
   ctx.lineWidth = 5;
 
-  _playing = playing;
   // Drawing the lines
-  if (playing == true) {
-    drawGrid();
-  }
+  drawGrid();
   let result = endGame(grid);
-  if (playing == true && result.type != undefined) {
-    console.log(result);
+  if (result.type != undefined) {
+    // console.log(result);
     // Draw a line for wins
     if (result.type != 'draw') {
       let pdg = 15;  // Padding for line
