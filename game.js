@@ -35,7 +35,32 @@ var gameLoop = function() {
     console.log(result);
     // Draw a line for wins
     if (result.type != 'draw') {
-      // Draw lines for wins
+      let pdg = 15;  // Padding for line
+      // switch() {case:} statement again!:
+      switch (result.angleWin) {
+        case 'column':
+          for (let i = 0; i < 3; i++) {
+            if (grid[0][i] == grid[1][i] && grid[1][i] == grid[2][i] && grid[0][i] == result.winner) {
+              line((i*cnv.width/3)+(cnv.width/6), pdg, (i*cnv.width/3)+(cnv.width/6), cnv.height-pdg); // Draw line for columns
+            }
+          }
+          break;
+        case 'row':
+          for (let i = 0; i < 3; i++) {
+            if (grid[i][0] == grid[i][1] && grid[i][1] == grid[i][2] && grid[i][0] == result.winner) {
+              line(pdg, (i*cnv.height/3)+(cnv.height/6), cnv.width-pdg, (i*cnv.height/3)+(cnv.height/6)); // Draw line for rows
+            }
+          }
+          break;
+        case 'diagonal':
+          if (grid[0][0] == grid[1][1] && grid[1][1] == grid[2][2] && grid[0][0] == result.winner) {
+            line(pdg, pdg, cnv.width-pdg, cnv.height-pdg);
+          }
+          if (grid[2][0] == grid[1][1] && grid[1][1] == grid[0][2] && grid[2][0] == result.winner) {
+            line(cnv.width-pdg, pdg, pdg, cnv.height-pdg);
+          }
+          break;
+      }
     }
     playing = false;
   }
