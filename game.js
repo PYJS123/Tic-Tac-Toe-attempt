@@ -36,6 +36,7 @@ var gameLoop = function() {
     // Draw a line for wins
     if (result.type != 'draw') {
       let pdg = 15;  // Padding for line
+      ctx.strokeStyle = '#00FF00'; // Make score line green
       // switch() {case:} statement again!:
       switch (result.angleWin) {
         case 'column':
@@ -54,10 +55,10 @@ var gameLoop = function() {
           break;
         case 'diagonal':
           if (grid[0][0] == grid[1][1] && grid[1][1] == grid[2][2] && grid[0][0] == result.winner) {
-            line(pdg, pdg, cnv.width-pdg, cnv.height-pdg);
+            line(pdg, pdg, cnv.width-pdg, cnv.height-pdg); // Diagonals
           }
           if (grid[2][0] == grid[1][1] && grid[1][1] == grid[0][2] && grid[2][0] == result.winner) {
-            line(cnv.width-pdg, pdg, pdg, cnv.height-pdg);
+            line(cnv.width-pdg, pdg, pdg, cnv.height-pdg); // Diagonals
           }
           break;
       }
