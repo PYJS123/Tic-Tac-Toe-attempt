@@ -1,6 +1,5 @@
 # To-do:
-1. **Stop the changing colours**
-2. _Allow to restart the game_
+1. _Allow to restart the game_
 2. _Implement basic random player_
 3. _Implement Minimax Algorithm_
   1. **Implement basic algorithm**
